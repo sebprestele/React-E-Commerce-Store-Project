@@ -9,13 +9,21 @@ Be creattive with the project and you can use whatever design or Api that you li
 ### Requirements
 
 💊  Use React, Redux , TypeScript.
+
 💊  Divide the app into smaller components. For example create a separate component for the card and separate component for the button.
+
 💊  Implement a working Cart System as shown in the demo. disable button once item is added to cart. show a counter on the cart icon.
+
 💊  Implement Search functionality
+
 💊  When clicking on back button , you app should not refresh. checkout useHistory hook.
+
 💊  Implement state persistance by using localStorage
+
 💊  create a light and Dark theme
+
 💊  Implement sorting (not required)
+
 💊  Anything else that you would like to add
 
 ### Api To Use

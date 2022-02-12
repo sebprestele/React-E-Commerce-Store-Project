@@ -1,8 +1,9 @@
+import { useEffect } from "react";
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from "Redux/Actions/productActions";
 import productsReducer from "Redux/Reducers/productReducer";
 import { RootState } from "Redux/Reducers/rootReducer";
-import { useEffect } from "react";
 
 import "../Shop/shop.css";
 
@@ -27,6 +28,7 @@ function ProductCard() {
           />
           <h2>{product.name}</h2>
           <p>Price: from {product.price.formatted_with_symbol}</p>
+          <Link to="/"></Link>
         </div>
       ))}
     </>

@@ -1,0 +1,24 @@
+.logo {
+  width: 100px;
+}
+
+.navigation-container {
+  display: flex;
+  justify-content: space-between;
+  /* width: 100vw; */
+  height: 3rem;
+  border-bottom: 1px solid grey;
+  padding: 1em;
+}
+
+.navigation-items {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 1em;
+}
+
+.nav-item {
+  text-decoration: none;
+  margin-left: 1em;
+}

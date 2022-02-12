@@ -1,0 +1,23 @@
+.shop-product-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 2em;
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 15rem;
+  height: 25rem;
+  border: 1px solid grey;
+  margin-bottom: 2em;
+}
+
+.product-card-image {
+  width: 13rem;
+}

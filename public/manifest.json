@@ -1,21 +1,21 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "The FinArts - Demo E-Commerce Store",
+  "name": "Demo E-Commerce Store created with React, Redux, TypeScript",
   "icons": [
     {
-      "src": "favicon.ico",
+      "src": "./favicon_package_v0.16/favicon.ico",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     },
     {
-      "src": "logo192.png",
+      "src": "./favicon_package_v0.16/favicon-32x32.png",
       "type": "image/png",
-      "sizes": "192x192"
+      "sizes": "32x32"
     },
     {
-      "src": "logo512.png",
+      "src": "./favicon_package_v0.16/favicon-16x16.png",
       "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "16x16"
     }
   ],
   "start_url": ".",

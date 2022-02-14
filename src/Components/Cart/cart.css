@@ -20,3 +20,8 @@ thead {
 .cart-image {
   width: 120px;
 }
+
+.cart-item-quantity {
+  display: flex;
+  flex-direction: column;
+}

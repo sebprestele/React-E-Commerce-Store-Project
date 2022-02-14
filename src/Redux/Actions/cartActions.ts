@@ -1,16 +1,34 @@
-import { Product } from "types";
-import { ADD_TO_CART, REMOVE_FROM_CART } from "./actionConsts";
+import { Dispatch } from "redux";
 
-export const addToCart = (product: Product) => {
+import commerce from "assets/lib/commerce";
+import { SET_CART } from "./actionConsts";
+
+import { Cart } from "@chec/commerce.js/types/cart";
+
+export const setCart = (cart: Cart) => {
   return {
-    type: ADD_TO_CART,
-    payload: product,
+    type: SET_CART,
+    payload: cart,
   };
 };
 
-export const removeFromCart = (item: Product) => {
-  return {
-    type: REMOVE_FROM_CART,
-    payload: item,
-  };
+export const retrieveCart = () => {
+  return (dispatch: Dispatch) =>
+    commerce.cart.retrieve().then((cart) => dispatch(setCart(cart)));
 };
+
+export const addToCart = (productId: string, quantity: number) => {
+  return (dispatch: Dispatch) =>
+    commerce.cart
+      .add(productId, quantity)
+      .then((response) => dispatch(setCart(response.cart)));
+};
+
+export const removeFromCart = (lineItemId: string) => {
+  return (dispatch: Dispatch) =>
+    commerce.cart
+      .remove(lineItemId)
+      .then((response) => dispatch(setCart(response.cart)));
+};
+
+export const increaseQuantity = () => {};

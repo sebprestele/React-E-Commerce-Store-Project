@@ -45,7 +45,9 @@ const Navigation = () => {
 
         <Link to="/cart">
           <FaShoppingCart className="cart-icon" />
-          <span className="icon-count">{cart.length > 0 && cart.length}</span>
+          <span className="icon-count">
+            {cart.total_items > 0 && cart.total_items}
+          </span>
         </Link>
       </div>
     </div>

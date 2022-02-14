@@ -3,7 +3,6 @@ import { useParams, useLocation } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "Redux/Reducers/rootReducer";
 import { addToCart } from "Redux/Actions/cartActions";
-
 import Navigation from "Components/Navigation/Navigation";
 import "./product-details.css";
 import Footer from "Components/Footer/Footer";
@@ -23,7 +22,7 @@ function ProductDetailsPage() {
 
   const productAssets = singleProduct.map((product: Product) => product.assets);
 
-  const [index, setIndex] = useState(0);
+  //const [index, setIndex] = useState(0);
 
   /*  const changeImage = () => {
     if (index > productAssets.length - 1) {
@@ -75,7 +74,7 @@ function ProductDetailsPage() {
               </p>
               <p>{product.description.replace(/(<([^>]+)>)/gi, "")}</p>
               <p>Choose your size</p>
-              <button onClick={() => dispatch(addToCart(product))}>
+              <button onClick={() => dispatch(addToCart(product.id, 1))}>
                 Add to Cart
               </button>
             </div>

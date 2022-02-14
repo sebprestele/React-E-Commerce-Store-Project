@@ -1,11 +1,12 @@
 import { Dispatch } from "redux";
 import commerce from "assets/lib/commerce";
+import Commerce from "@chec/commerce.js";
 
 import { ActionTypes } from "Redux/actionTypes";
 import { Product } from "types";
 import { GET_PRODUCTS } from "./actionConsts";
 
-export const getProducts = (products: Product[]): ActionTypes => {
+export const getProducts = (products: any): ActionTypes => {
   return {
     type: GET_PRODUCTS,
     payload: { products },

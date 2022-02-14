@@ -1,30 +1,23 @@
-import { ADD_TO_CART, REMOVE_FROM_CART } from "Redux/Actions/actionConsts";
+import { REMOVE_FROM_CART, SET_CART } from "Redux/Actions/actionConsts";
 import { ActionTypes } from "Redux/actionTypes";
-import { Product } from "types";
 
-type DefaultState = {
-  cart: Product[];
-};
-
-const intialState: DefaultState = {
+const intialState = {
   cart: [],
 };
 
-const cartReducer = (
-  state = intialState,
-  action: ActionTypes
-): DefaultState => {
+const cartReducer = (state = intialState, action: ActionTypes) => {
   switch (action.type) {
-    case ADD_TO_CART:
+    case SET_CART:
       return {
         ...state,
-        cart: [...state.cart, action.payload],
+        cart: action.payload,
       };
-    case REMOVE_FROM_CART:
+
+    /*   case REMOVE_FROM_CART:
       return {
         ...state,
         cart: state.cart.filter((item) => item !== action.payload),
-      };
+      }; */
     default:
       return state;
   }

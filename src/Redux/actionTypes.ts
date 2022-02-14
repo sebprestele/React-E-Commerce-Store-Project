@@ -5,7 +5,9 @@ import {
   REMOVE_FROM_WISHLIST,
   ADD_TO_CART,
   REMOVE_FROM_CART,
+  SET_CART,
 } from "Redux/Actions/actionConsts";
+import { Cart } from "@chec/commerce.js/types/cart";
 
 //Fetch Products
 
@@ -15,6 +17,11 @@ type GetProductsAction = {
 };
 
 //Cart Actions
+
+type setCartAction = {
+  type: typeof SET_CART;
+  payload: Cart;
+};
 
 type AddToCartAction = {
   type: typeof ADD_TO_CART;
@@ -40,6 +47,7 @@ type RemoveFromWishListAction = {
 
 export type ActionTypes =
   | GetProductsAction
+  | setCartAction
   | AddToCartAction
   | RemoveFromCartAction
   | AddToWishlistAction

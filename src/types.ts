@@ -13,6 +13,15 @@ export type Product = {
     options: [name: string, price: { formated_with_symbol: string }]
   ]; */
   inventory: { available: number; managed: Boolean };
+  quantity: number;
 };
 
 export type Asset = [filename: string, url: string, id: string];
+
+export type Cart = {
+  id: string;
+  currency: { code: string; symbol: string };
+  discount: [];
+  line_items: [];
+  subtotal: { raw: number };
+};

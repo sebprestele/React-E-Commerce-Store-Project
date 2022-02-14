@@ -5,7 +5,6 @@
 .navigation-container {
   display: flex;
   justify-content: space-between;
-  /* width: 100vw; */
   height: 3rem;
   border-bottom: 1px solid grey;
   padding: 1em;
@@ -13,7 +12,7 @@
 
 .navigation-items {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   padding-right: 1em;
 }
@@ -21,4 +20,37 @@
 .nav-item {
   text-decoration: none;
   margin-left: 1em;
+}
+
+.nav-item.shop {
+  background-color: #35d2c9;
+  color: white;
+  padding: 0.5em;
+  border-radius: 0.75em;
+}
+
+.navigation-icons {
+  display: flex;
+  align-items: center;
+  margin: 0 1em;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.user-icon {
+  margin-right: 1em;
+  color: black;
+}
+
+.cart-icon {
+  margin-left: 1em;
+  color: black;
+  text-decoration: none;
+}
+
+.icon-count {
+  color: black;
 }

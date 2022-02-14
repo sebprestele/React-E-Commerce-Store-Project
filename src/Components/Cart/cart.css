@@ -1,0 +1,22 @@
+.cart-container {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+}
+
+.cart-table {
+  padding: 3em;
+  border: 1px solid black;
+  text-align: center;
+  width: 60%;
+}
+
+thead {
+  border-bottom: 1px solid black;
+}
+
+.cart-image {
+  width: 120px;
+}

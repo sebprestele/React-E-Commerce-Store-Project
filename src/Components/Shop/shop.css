@@ -18,6 +18,26 @@
   margin-bottom: 2em;
 }
 
+.product-card-price-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-card-price {
+  margin-left: 0.5em;
+}
+
 .product-card-image {
   width: 13rem;
+}
+
+.product-card-icons {
+  display: flex;
+}
+
+.wishlist-icon {
+  color: white;
+  stroke: black;
+  stroke-width: 50;
 }

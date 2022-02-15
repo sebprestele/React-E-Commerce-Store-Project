@@ -3,10 +3,10 @@ import commerce from "assets/lib/commerce";
 import Commerce from "@chec/commerce.js";
 
 import { ActionTypes } from "Redux/actionTypes";
-import { Product } from "types";
 import { GET_PRODUCTS } from "./actionConsts";
+import { Product } from "@chec/commerce.js/types/product";
 
-export const getProducts = (products: any): ActionTypes => {
+export const getProducts = (products: Product[]): ActionTypes => {
   return {
     type: GET_PRODUCTS,
     payload: { products },

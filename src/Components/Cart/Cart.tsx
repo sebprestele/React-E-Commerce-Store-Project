@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { RiDeleteBin6Fill } from "react-icons/ri";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
@@ -19,7 +20,7 @@ import Navigation from "Components/Navigation/Navigation";
 import "./cart.css";
 
 function Cart() {
-  const { cart } = useSelector((state: RootState) => state.cartReducer);
+  const cart = useSelector((state: RootState) => state.cartReducer.cart);
 
   const dispatch = useDispatch();
 
@@ -34,7 +35,7 @@ function Cart() {
       <Navigation />
       <h1>Cart</h1>
       <div className="cart-container">
-        {cart.line_items.length ? (
+        {cart.line_items ? (
           <table className="cart-table">
             <thead>
               <tr>
@@ -51,7 +52,9 @@ function Cart() {
               {cart.line_items.map((item) => (
                 <tr key={item.id}>
                   <td>
-                    <img className="cart-image" src={item.image.url} alt="" />
+                    {item.image && (
+                      <img className="cart-image" src={item.image.url} alt="" />
+                    )}
                   </td>
                   <td>{item.name}</td>
                   <td>{item.price.formatted_with_symbol}</td>
@@ -106,9 +109,7 @@ function Cart() {
         {cart.line_items.length > 0 && (
           <div>
             <button onClick={() => dispatch(clearCart())}>Clear Cart</button>
-            <button onClick={() => dispatch(initiateCheckout())}>
-              Checkout
-            </button>
+            <Link to="/checkout">Checkout</Link>
           </div>
         )}
       </div>

@@ -1,27 +1,34 @@
-export type Products = [products: Product];
+export type Nothing = {
+  fornow: never;
+};
+
+/* export type Products = [products: Product];
 
 export type Product = {
-  id: string;
-  name: string;
-  price: { formatted_with_symbol: string; raw: number };
+  id: String;
+  name: String;
+  price: { formatted_with_symbol: String; raw: Number };
   assets: Asset;
-  image: { url: string; permaling: string; filename: string };
-  permalink: string;
+  image: { url: String; permaling: String; filename: String };
+  permalink: String;
   // categories: [name: string, slug: string];
-  description: string;
+  description: String;
   /*   variant_groups: [
     options: [name: string, price: { formated_with_symbol: string }]
   ]; */
-  inventory: { available: number; managed: Boolean };
-  quantity: number;
-};
+/*  inventory: { available: Number; managed: Boolean };
+  quantity: Number; */
 
-export type Asset = [filename: string, url: string, id: string];
+//export type Asset = [filename: String, url: String, id: String];
 
-export type Cart = {
-  id: string;
-  currency: { code: string; symbol: string };
-  discount: [];
-  line_items: [];
-  subtotal: { raw: number };
-};
+/* export interface Cart {
+  id: String;
+  currency: { code: String; symbol: String };
+  line_items: [
+    id: String,
+    name: String,
+    permalink: String,
+    image: { url: String }
+  ];
+  subtotal: { raw: Number };
+} */

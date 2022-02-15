@@ -1,10 +1,11 @@
+import { Product } from "@chec/commerce.js/types/product";
 import {
   GET_PRODUCTS,
   ADD_TO_WISHLIST,
   REMOVE_FROM_WISHLIST,
 } from "Redux/Actions/actionConsts";
 import { ActionTypes } from "Redux/actionTypes";
-import { Product } from "types";
+//import { Product } from "types";
 
 type DefaultState = {
   products: Product[];

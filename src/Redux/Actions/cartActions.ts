@@ -56,9 +56,16 @@ export const clearCart = () => {
     commerce.cart.empty().then((response) => dispatch(setCart(response.cart)));
 };
 
+export const getCheckOutToken = (response) => {
+  return {
+    type: "SET_CHECKOUT_TOKEN",
+    payload: response,
+  };
+};
+
 export const initiateCheckout = () => {
   return (dispatch: Dispatch) =>
     commerce.checkout
       .generateTokenFrom("cart", commerce.cart.id())
-      .then((response) => console.log(response.id));
+      .then((response) => dispatch(getCheckOutToken(response.id)));
 };

@@ -9,6 +9,7 @@ import "App.css";
 import ProductDetailsPage from "Components/Products/ProductDetailsPage";
 import Wishlist from "Components/Wishlist/Wishlist";
 import Account from "Components/Account/Account";
+import Checkout from "Components/Checkout/Checkout";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/shop" element={<Shop />}></Route>
         <Route path="/contact" element={<Contact />}></Route>
         <Route path="/cart" element={<Cart />}></Route>
+        <Route path="/checkout" element={<Checkout />}></Route>
         <Route path="/products/:name" element={<ProductDetailsPage />}></Route>
         <Route path="/wishlist" element={<Wishlist />}></Route>
         <Route path="/account" element={<Account />}></Route>

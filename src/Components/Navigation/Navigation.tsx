@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { FaShoppingCart, FaUserAlt, FaHeart } from "react-icons/fa";
-import { FiHeart } from "react-icons/fi";
+import Badge from "@mui/material/Badge";
 
 import { RootState } from "Redux/Reducers/rootReducer";
 
@@ -37,17 +37,18 @@ const Navigation = () => {
           <FaUserAlt className="user-icon" />
         </Link>
         <Link to="/wishlist">
-          <FaHeart />
-          <span className="icon-count">
-            {wishList.length > 0 && wishList.length}
-          </span>
+          <Badge badgeContent={wishList.length} color="primary">
+            <FaHeart />
+          </Badge>
         </Link>
 
         <Link to="/cart">
-          <FaShoppingCart className="cart-icon" />
-          <span className="icon-count">
-            {cart.total_items > 0 && cart.total_items}
-          </span>
+          <Badge
+            badgeContent={cart.line_items && cart.line_items.length}
+            color="primary"
+          >
+            <FaShoppingCart className="cart-icon" />
+          </Badge>
         </Link>
       </div>
     </div>

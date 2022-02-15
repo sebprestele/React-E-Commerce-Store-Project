@@ -3,7 +3,14 @@ import { useSelector, useDispatch } from "react-redux";
 import { RiDeleteBin6Fill } from "react-icons/ri";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 
-import { removeFromCart, retrieveCart } from "Redux/Actions/cartActions";
+import {
+  removeFromCart,
+  retrieveCart,
+  increaseQuantity,
+  decreaseQuantity,
+  clearCart,
+  initiateCheckout,
+} from "Redux/Actions/cartActions";
 import { RootState } from "Redux/Reducers/rootReducer";
 
 import Footer from "Components/Footer/Footer";
@@ -27,7 +34,7 @@ function Cart() {
       <Navigation />
       <h1>Cart</h1>
       <div className="cart-container">
-        {cart.id ? (
+        {cart.line_items.length ? (
           <table className="cart-table">
             <thead>
               <tr>
@@ -52,13 +59,25 @@ function Cart() {
                     <div className="cart-item-quantity">
                       <span>
                         <IoIosArrowUp
-                          onClick={() => dispatch(increaseQuantity(item.id))}
+                          onClick={() =>
+                            dispatch(
+                              increaseQuantity(item.id, {
+                                quantity: item.quantity + 1,
+                              })
+                            )
+                          }
                         />
                       </span>
-                      {item.quantity}{" "}
+                      {item.quantity}
                       <span>
                         <IoIosArrowDown
-                          onClick={() => dispatch(decreaseQuantity(item.id))}
+                          onClick={() =>
+                            dispatch(
+                              decreaseQuantity(item.id, {
+                                quantity: item.quantity - 1,
+                              })
+                            )
+                          }
                         />
                       </span>
                     </div>
@@ -83,6 +102,14 @@ function Cart() {
           </table>
         ) : (
           "Cart is empty"
+        )}
+        {cart.line_items.length > 0 && (
+          <div>
+            <button onClick={() => dispatch(clearCart())}>Clear Cart</button>
+            <button onClick={() => dispatch(initiateCheckout())}>
+              Checkout
+            </button>
+          </div>
         )}
       </div>
 

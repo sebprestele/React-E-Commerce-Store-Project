@@ -31,4 +31,34 @@ export const removeFromCart = (lineItemId: string) => {
       .then((response) => dispatch(setCart(response.cart)));
 };
 
-export const increaseQuantity = () => {};
+export const increaseQuantity = (
+  lineItemId: string,
+  { quantity: newQuantity }: { quantity: number }
+) => {
+  return (dispatch: Dispatch) =>
+    commerce.cart
+      .update(lineItemId, { quantity: newQuantity })
+      .then((response) => dispatch(setCart(response.cart)));
+};
+
+export const decreaseQuantity = (
+  lineItemId: string,
+  { quantity: newQuantity }: { quantity: number }
+) => {
+  return (dispatch: Dispatch) =>
+    commerce.cart
+      .update(lineItemId, { quantity: newQuantity })
+      .then((response) => dispatch(setCart(response.cart)));
+};
+
+export const clearCart = () => {
+  return (dispatch: Dispatch) =>
+    commerce.cart.empty().then((response) => dispatch(setCart(response.cart)));
+};
+
+export const initiateCheckout = () => {
+  return (dispatch: Dispatch) =>
+    commerce.checkout
+      .generateTokenFrom("cart", commerce.cart.id())
+      .then((response) => console.log(response.id));
+};

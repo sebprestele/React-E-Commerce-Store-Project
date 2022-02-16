@@ -33,8 +33,8 @@ function ProductCard() {
           <Link to={`/products/${product.permalink}`}>
             <img
               className="product-card-image"
-              src={product.image.url}
-              alt={product.image.filename}
+              src={product.image?.url}
+              alt={product.name}
             />
           </Link>
           <h2>{product.name}</h2>
@@ -59,7 +59,7 @@ function ProductCard() {
           </div>
 
           <div className="product-card-icons">
-            <button onClick={() => dispatch(addToCart(product))}>
+            <button onClick={() => dispatch(addToCart(product.id, 1))}>
               Add to Cart
             </button>
             <Link to={`/products/${product.permalink}`}>More Details</Link>

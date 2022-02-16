@@ -1,15 +1,22 @@
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { FaShoppingCart, FaUserAlt, FaHeart } from "react-icons/fa";
 import Badge from "@mui/material/Badge";
 
 import { RootState } from "Redux/Reducers/rootReducer";
+import { retrieveCart } from "Redux/Actions/cartActions";
 
 import "./navigation.css";
 
 const Navigation = () => {
   const { cart } = useSelector((state: RootState) => state.cartReducer);
   const { wishList } = useSelector((state: RootState) => state.productsReducer);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(retrieveCart());
+  }, [dispatch]);
 
   return (
     <div className="navigation-container">

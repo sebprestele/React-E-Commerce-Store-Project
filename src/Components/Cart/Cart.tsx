@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { RiDeleteBin6Fill } from "react-icons/ri";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
@@ -10,7 +10,6 @@ import {
   increaseQuantity,
   decreaseQuantity,
   clearCart,
-  initiateCheckout,
 } from "Redux/Actions/cartActions";
 import { RootState } from "Redux/Reducers/rootReducer";
 
@@ -20,7 +19,7 @@ import Navigation from "Components/Navigation/Navigation";
 import "./cart.css";
 
 function Cart() {
-  const cart = useSelector((state: RootState) => state.cartReducer.cart);
+  const { cart } = useSelector((state: RootState) => state.cartReducer);
 
   const dispatch = useDispatch();
 
@@ -35,7 +34,7 @@ function Cart() {
       <Navigation />
       <h1>Cart</h1>
       <div className="cart-container">
-        {cart.line_items ? (
+        {cart.line_items.length ? (
           <table className="cart-table">
             <thead>
               <tr>

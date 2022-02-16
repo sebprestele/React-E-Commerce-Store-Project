@@ -25,7 +25,7 @@ import Footer from "Components/Footer/Footer";
 
 //Redux imports
 import { RootState } from "Redux/Reducers/rootReducer";
-import { initiateCheckout } from "Redux/Actions/cartActions";
+import { initiateCheckout } from "Redux/Actions/checkoutActions";
 
 //Creates the steps for the checkout
 const steps = ["Shipping address", "Payment details", "Review your order"];
@@ -61,8 +61,8 @@ export default function Checkout() {
   const { cart } = useSelector((state: RootState) => state.cartReducer);
 
   useEffect(() => {
-    dispatch(initiateCheckout(cart.id));
-  }, [dispatch, cart.id]);
+    dispatch(initiateCheckout());
+  }, [dispatch]);
 
   return (
     <ThemeProvider theme={theme}>

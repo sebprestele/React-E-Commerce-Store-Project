@@ -14,7 +14,12 @@ export const setCart = (cart: Cart) => {
 
 export const retrieveCart = () => {
   return (dispatch: Dispatch) =>
-    commerce.cart.retrieve().then((cart) => dispatch(setCart(cart)));
+    commerce.cart
+      .retrieve()
+      .then((cart) => dispatch(setCart(cart)))
+      .catch((error) => {
+        console.log("There was an error fetching the cart", error);
+      });
 };
 
 export const addToCart = (productId: string, quantity: number) => {
@@ -54,18 +59,4 @@ export const decreaseQuantity = (
 export const clearCart = () => {
   return (dispatch: Dispatch) =>
     commerce.cart.empty().then((response) => dispatch(setCart(response.cart)));
-};
-
-export const getCheckOutToken = (response) => {
-  return {
-    type: "SET_CHECKOUT_TOKEN",
-    payload: response,
-  };
-};
-
-export const initiateCheckout = () => {
-  return (dispatch: Dispatch) =>
-    commerce.checkout
-      .generateTokenFrom("cart", commerce.cart.id())
-      .then((response) => dispatch(getCheckOutToken(response.id)));
 };

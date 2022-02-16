@@ -1,4 +1,4 @@
-import { Product } from "types";
+import { Product } from "@chec/commerce.js/types/product";
 import { ADD_TO_WISHLIST, REMOVE_FROM_WISHLIST } from "./actionConsts";
 
 export const addToWishList = (product: Product) => {

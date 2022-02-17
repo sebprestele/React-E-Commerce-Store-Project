@@ -24,20 +24,19 @@ import Navigation from "Components/Navigation/Navigation";
 import Footer from "Components/Footer/Footer";
 
 //Redux imports
-import { RootState } from "Redux/Reducers/rootReducer";
 import { initiateCheckout } from "Redux/Actions/checkoutActions";
 
 //Creates the steps for the checkout
-const steps = ["Shipping address", "Payment details", "Review your order"];
+const steps = ["Shipping address", "Review your order", "Payment details"];
 
 function getStepContent(step: number) {
   switch (step) {
     case 0:
       return <AddressForm />;
     case 1:
-      return <PaymentForm />;
-    case 2:
       return <Review />;
+    case 2:
+      return <PaymentForm />;
     default:
       throw new Error("Unknown step");
   }
@@ -58,7 +57,6 @@ export default function Checkout() {
     setActiveStep(activeStep - 1);
   };
   const dispatch = useDispatch();
-  const { cart } = useSelector((state: RootState) => state.cartReducer);
 
   useEffect(() => {
     dispatch(initiateCheckout());
@@ -114,13 +112,15 @@ export default function Checkout() {
                       Back
                     </Button>
                   )}
-                  <Button
-                    variant="contained"
-                    onClick={handleNext}
-                    sx={{ mt: 3, ml: 1 }}
-                  >
-                    {activeStep === steps.length - 1 ? "Place order" : "Next"}
-                  </Button>
+                  {activeStep !== steps.length - 1 && (
+                    <Button
+                      variant="contained"
+                      onClick={handleNext}
+                      sx={{ mt: 3, ml: 1 }}
+                    >
+                      Next
+                    </Button>
+                  )}
                 </Box>
               </React.Fragment>
             )}

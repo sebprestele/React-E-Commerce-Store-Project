@@ -6,6 +6,14 @@ import {
   REMOVE_FROM_CART,
   SET_CART,
   SET_CHECKOUT_TOKEN,
+  GET_FIRSTNAME,
+  GET_LASTNAME,
+  GET_ADDRESS,
+  GET_CITY,
+  GET_EMAIL,
+  GET_POSTCODE,
+  GET_REGION,
+  GET_COUNTRY,
 } from "Redux/Actions/actionConsts";
 import { Cart } from "@chec/commerce.js/types/cart";
 import { Product } from "@chec/commerce.js/types/product";
@@ -51,6 +59,46 @@ type RemoveFromWishListAction = {
   payload: Product;
 };
 
+type GetFirstNameAction = {
+  type: typeof GET_FIRSTNAME;
+  payload: string;
+};
+
+type GetLastNameAction = {
+  type: typeof GET_LASTNAME;
+  payload: string;
+};
+
+type GetEmailAction = {
+  type: typeof GET_EMAIL;
+  payload: string;
+};
+
+type GetAddressAction = {
+  type: typeof GET_ADDRESS;
+  payload: string;
+};
+
+type GetPostcodeAction = {
+  type: typeof GET_POSTCODE;
+  payload: string;
+};
+
+type GetCityAction = {
+  type: typeof GET_CITY;
+  payload: string;
+};
+
+type GetRegionAction = {
+  type: typeof GET_REGION;
+  payload: string;
+};
+
+type GetCountryAction = {
+  type: typeof GET_COUNTRY;
+  payload: string;
+};
+
 export type ActionTypes =
   | GetProductsAction
   | setCartAction
@@ -58,4 +106,12 @@ export type ActionTypes =
   | AddToCartAction
   | RemoveFromCartAction
   | AddToWishlistAction
-  | RemoveFromWishListAction;
+  | RemoveFromWishListAction
+  | GetFirstNameAction
+  | GetLastNameAction
+  | GetEmailAction
+  | GetAddressAction
+  | GetPostcodeAction
+  | GetCityAction
+  | GetRegionAction
+  | GetCountryAction;

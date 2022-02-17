@@ -1,0 +1,35 @@
+.footer {
+  border-top: 1px solid grey;
+  display: flex;
+  justify-content: space-between;
+  min-height: 4rem;
+  background: white;
+  color: black;
+}
+.footer p {
+  display: flex;
+  font-size: 0.8rem;
+  align-items: center;
+  padding: 1em;
+}
+.footer__icons {
+  list-style: none;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 15rem;
+  padding: 1em;
+}
+.footer__icons li {
+  width: 2em;
+  height: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  border: 1px solid black;
+}
+
+.footer__icons li:hover {
+  cursor: pointer;
+}

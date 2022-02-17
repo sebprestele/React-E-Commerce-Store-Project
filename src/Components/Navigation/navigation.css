@@ -5,9 +5,35 @@
 .navigation-container {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   height: 3rem;
-  border-bottom: 1px solid grey;
+  max-width: 100vw;
   padding: 1em;
+  border-bottom: 1px solid grey;
+}
+
+.fixed {
+  display: flex;
+  justify-content: space-between;
+  padding: 1em;
+  height: 2rem;
+  width: 100%;
+  position: fixed;
+  background: rgba(255, 255, 255, 0.8);
+  top: 0;
+  z-index: 1;
+  border-bottom: 1px solid grey;
+}
+
+.home {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  height: 3rem;
+  max-width: 100vw;
+  padding: 1em;
+  z-index: 1;
+  border-bottom: 1px solid grey;
 }
 
 .navigation-items {
@@ -23,7 +49,7 @@
 }
 
 .nav-item.shop {
-  background-color: #35d2c9;
+  background-color: #3987c9;
   color: white;
   padding: 0.5em;
   border-radius: 0.75em;
@@ -32,7 +58,7 @@
 .navigation-icons {
   display: flex;
   align-items: center;
-  margin: 0 1em;
+  margin: 0 2em;
 }
 
 a {

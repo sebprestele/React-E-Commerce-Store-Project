@@ -1,17 +1,13 @@
-import { useState, useEffect } from "react";
 import { useParams, useLocation } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
+import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 import { RootState } from "Redux/Reducers/rootReducer";
 import { addToCart } from "Redux/Actions/cartActions";
 import Navigation from "Components/Navigation/Navigation";
 import "./product-details.css";
 import Footer from "Components/Footer/Footer";
-import ImageBanner from "Components/FullWidthImage/ImageBanner";
-
-import { Product } from "types";
 
 function ProductDetailsPage() {
-  const location = useLocation();
   const dispatch = useDispatch();
   const { name } = useParams();
   const { products } = useSelector((state: RootState) => state.productsReducer);
@@ -20,37 +16,9 @@ function ProductDetailsPage() {
     (product) => product.permalink === name
   );
 
-  const productAssets = singleProduct.map((product: Product) => product.assets);
-
-  //const [index, setIndex] = useState(0);
-
-  /*  const changeImage = () => {
-    if (index > productAssets.length - 1) {
-      index = 0;
-    } else if (index < 0) {
-      index = productAssets.length - 1;
-    }
-  }; */
-
-  /*   const nextImage = () => {
-    console.log("click next ", index);
-    if (index < productAssets.length - 1) {
-      setIndex((prevIndex) => prevIndex++);
-    }
-  };
-
-
-  const prevImage = () => {
-    console.log("click prev", index);
-    if (index > 0) {
-      setIndex((prevIndex) => prevIndex--);
-    }
-  }; */
-
   return (
-    <>
+    <div className="page-wrapper">
       <Navigation />
-      <p>{location.pathname}</p>
 
       <div className="single-product-wrapper">
         {singleProduct.map((product) => (
@@ -67,28 +35,52 @@ function ProductDetailsPage() {
             </div>
             <div className="single-product-details">
               <h1>{product.name}</h1>
-              <p>Rating</p>
+              <p className="rating">
+                <FaStar />
+                <FaStar />
+                <FaStar />
+                <FaStar />
+                <FaStarHalfAlt />
+              </p>
               <hr />
               <p>
                 <b>Price: </b> from {product.price.formatted_with_symbol}
               </p>
-              <p>{product.description.replace(/(<([^>]+)>)/gi, "")}</p>
-              <p>Choose your size</p>
-              <button onClick={() => dispatch(addToCart(product.id, 1))}>
-                Add to Cart
-              </button>
-            </div>
+              <p>In stock: {product.inventory.available}</p>
 
-            <div>
-              <h3>Product Description</h3>
+              <p>{product.description.replace(/(<([^>]+)>)/gi, "")}</p>
+              {product.inventory.available !== 0 ? (
+                <button
+                  onClick={() => dispatch(addToCart(product.id, 1))}
+                  className="btn--add-to-cart"
+                >
+                  Add to Cart
+                </button>
+              ) : (
+                <button disabled className="btn--disabled">
+                  out of stock
+                </button>
+              )}
             </div>
           </div>
         ))}
-      </div>
 
-      <ImageBanner />
+        <section className="product-details-detailed-information">
+          <h3>Product Description</h3>
+
+          {singleProduct.map((product) => (
+            <p className="product-details-detailed-description">
+              {product.description.replace(/(<([^>]+)>)/gi, "")}
+            </p>
+          ))}
+        </section>
+
+        <section>
+          <h3>Related products area -- to be done </h3>
+        </section>
+      </div>
       <Footer />
-    </>
+    </div>
   );
 }
 

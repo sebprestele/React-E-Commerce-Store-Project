@@ -2,6 +2,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  min-height: 100vh;
+  overflow: hidden;
 }
 
 .loadingContainer {
@@ -9,4 +11,106 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, 50%);
+}
+
+h1,
+h2,
+h3 {
+  margin: 0.35em 0;
+}
+
+h1 {
+  font-size: 3rem;
+  text-align: center;
+}
+
+h2 {
+  text-align: center;
+  font-size: 2.4rem;
+}
+
+h3 {
+  font-size: 1.9rem;
+}
+p {
+  font-size: 1.3rem;
+}
+
+.btn {
+  border-radius: 1em;
+  border: 1px solid black;
+  padding: 0.55em 1em;
+  text-decoration: none;
+  width: fit-content;
+  margin: 1em 0;
+  font-family: "Inter", sans-serif;
+  font-size: 1.2rem;
+}
+
+.btn:hover {
+  cursor: pointer;
+  background: grey;
+  color: white;
+  border: 1px solid grey;
+}
+
+.btn--add-to-cart {
+  background: #3987c9;
+  color: white;
+  border-radius: 1em;
+  padding: 0.45em 0.75em;
+  text-transform: uppercase;
+  width: fit-content;
+  margin: 1em 0;
+  font-family: "Inter", sans-serif;
+  font-size: 1.3rem;
+  border: none;
+}
+.btn--add-to-cart:hover {
+  background: white;
+  color: #3987c9;
+  cursor: pointer;
+  outline: 1px solid #3987c9;
+  border: none;
+}
+
+.btn--disabled {
+  cursor: none;
+  border-radius: 1em;
+  border: 1px solid black;
+  padding: 0.55em 1em;
+  text-decoration: none;
+  width: fit-content;
+  margin: 1em 0;
+  font-family: "Inter", sans-serif;
+  font-size: 1.2rem;
+}
+
+.btn--primary {
+  background: #3987c9;
+  color: white;
+  border: none;
+  font-size: 1.3rem;
+}
+
+.btn--primary:hover {
+  color: black;
+  background: white;
+  outline: 3px solid #3987c9;
+}
+
+.btn--secondary {
+  background: white;
+  color: black;
+  outline: 3px solid #3987c9;
+  font-size: 1.3rem;
+  text-align: center;
+  border-radius: 0.125em;
+}
+
+.btn--secondary:hover {
+  background: #3987c9;
+  color: white;
+  outline: 3px solid #3987c9;
+  cursor: pointer;
 }

@@ -30,10 +30,10 @@ function Cart() {
   console.log(cart);
 
   return (
-    <>
+    <div className="page-wrapper">
       <Navigation />
-      <h1>Cart</h1>
       <div className="cart-container">
+        <h1>Your shopping cart</h1>
         {cart.line_items.length ? (
           <table className="cart-table">
             <thead>
@@ -87,6 +87,7 @@ function Cart() {
                   <td>€{item.price.raw * item.quantity}</td>
                   <td>
                     <RiDeleteBin6Fill
+                      className="delete-btn"
                       onClick={() => dispatch(removeFromCart(item.id))}
                     />
                   </td>
@@ -97,8 +98,12 @@ function Cart() {
                 <td></td>
                 <td></td>
                 <td></td>
-                <td>Total</td>
-                <td>{cart.subtotal.formatted_with_symbol}</td>
+                <td>
+                  <b>Total</b>
+                </td>
+                <td>
+                  <b>{cart.subtotal.formatted_with_symbol}</b>
+                </td>
               </tr>
             </tbody>
           </table>
@@ -106,15 +111,19 @@ function Cart() {
           "Cart is empty"
         )}
         {cart.line_items.length > 0 && (
-          <div>
-            <button onClick={() => dispatch(clearCart())}>Clear Cart</button>
-            <Link to="/checkout">Checkout</Link>
+          <div className="cart-button-container">
+            <button className="btn" onClick={() => dispatch(clearCart())}>
+              Clear Cart
+            </button>
+            <Link to="/checkout" className="btn btn--primary">
+              Checkout
+            </Link>
           </div>
         )}
       </div>
 
       <Footer />
-    </>
+    </div>
   );
 }
 

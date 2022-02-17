@@ -2,7 +2,6 @@
   display: flex;
   flex-wrap: wrap-reverse;
   justify-content: space-around;
-  margin-top: 3em;
   min-height: 80vh;
   background-color: white;
   z-index: 2;
@@ -21,7 +20,12 @@
   margin-top: 3em;
 }
 
+.top {
+  margin-top: 8em;
+}
+
 .image-main {
+  height: 30rem;
   box-shadow: 5px 8px 5px 0px rgba(0, 0, 0, 0.64);
   -webkit-box-shadow: 5px 8px 5px 0px rgba(0, 0, 0, 0.64);
   -moz-box-shadow: 5px 8px 5px 0px rgba(0, 0, 0, 0.64);

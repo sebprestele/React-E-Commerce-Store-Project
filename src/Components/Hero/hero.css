@@ -17,6 +17,7 @@
   flex-direction: column;
   align-items: flex-start;
   min-width: 25%;
+  max-width: 50%;
   margin: 0 3em;
   padding: 2em;
   z-index: 1;
@@ -28,4 +29,28 @@
   top: 0;
   z-index: -1;
   /* max-width: inherit; */
+}
+
+.home-main-headline {
+  text-transform: uppercase;
+  font-size: 3.5rem;
+  text-align: left;
+}
+.highlight {
+  background: linear-gradient(
+    to right,
+    orange,
+    yellow,
+    green,
+    cyan,
+    blue,
+    violet
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-image {
+  height: 330px;
+  bottom: 0;
 }

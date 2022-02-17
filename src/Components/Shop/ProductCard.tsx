@@ -59,12 +59,19 @@ function ProductCard() {
           </div>
 
           <div className="product-card-buttons">
-            <button
-              onClick={() => dispatch(addToCart(product.id, 1))}
-              className="btn--add-to-cart"
-            >
-              Add to Cart
-            </button>
+            {!product.conditionals.is_sold_out ? (
+              <button
+                onClick={() => dispatch(addToCart(product.id, 1))}
+                className="btn--add-to-cart"
+              >
+                Add to Cart
+              </button>
+            ) : (
+              <button disabled className="btn--disabled">
+                out of stock
+              </button>
+            )}
+
             <Link
               to={`/products/${product.permalink}`}
               className="btn--secondary"

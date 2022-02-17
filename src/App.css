@@ -20,7 +20,7 @@ h3 {
 }
 
 h1 {
-  font-size: 3rem;
+  font-size: 2.7rem;
   text-align: center;
 }
 
@@ -91,6 +91,7 @@ p {
   color: white;
   border: none;
   font-size: 1.3rem;
+  border: 1px solid #3987c9;
 }
 
 .btn--primary:hover {
@@ -113,4 +114,8 @@ p {
   color: white;
   outline: 3px solid #3987c9;
   cursor: pointer;
+}
+
+.work-in-progress {
+  text-align: center;
 }

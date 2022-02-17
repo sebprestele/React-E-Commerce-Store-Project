@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 function Main() {
   return (
     <section className="main-content">
-      <div className="main-image-container">
+      <div className="main-image-container top">
         <img
           className="image-main"
           src="
@@ -11,7 +11,7 @@ function Main() {
           alt=""
         />
       </div>
-      <div className="main-content-container">
+      <div className="main-content-container top">
         <h2>Sharks look amazing everywhere!</h2>
         <p>They are not only a fascinating eye-catcher. </p>
         <p>

@@ -1,11 +1,11 @@
-import { Link } from "react-router-dom";
-import { useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { FaShoppingCart, FaUserAlt, FaHeart } from "react-icons/fa";
 import Badge from "@mui/material/Badge";
 
 import { RootState } from "Redux/Reducers/rootReducer";
-import { retrieveCart } from "Redux/Actions/cartActions";
+import { retrieveCart, setCart } from "Redux/Actions/cartActions";
 
 import "./navigation.css";
 
@@ -18,13 +18,32 @@ const Navigation = () => {
     dispatch(retrieveCart());
   }, [dispatch]);
 
+  const pathname = window.location.pathname;
+
+  const [stickyClass, setStickClass] = useState(false);
+
+  useEffect(() => {
+    window.onscroll = function () {
+      window.scrollY > 50 ? setStickClass(true) : setStickClass(false);
+    };
+  }, []);
+
   return (
-    <div className="navigation-container">
+    <div
+      className={
+        pathname === "/" && !stickyClass
+          ? "home"
+          : pathname !== "/" && !stickyClass
+          ? "navigation-container"
+          : "fixed"
+      }
+    >
       <img
         className="logo"
         src="https://thefinarts.com/wp-content/uploads/2021/02/Logo-website-2020-cropped.svg"
         alt="Logo"
       />
+
       <div className="navigation-items">
         <Link className="nav-item" to="/">
           Home
@@ -51,7 +70,7 @@ const Navigation = () => {
 
         <Link to="/cart">
           <Badge
-            badgeContent={cart.line_items && cart.line_items.length}
+            badgeContent={cart.line_items && cart.total_items}
             color="primary"
           >
             <FaShoppingCart className="cart-icon" />

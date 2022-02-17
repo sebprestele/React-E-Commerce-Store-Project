@@ -13,12 +13,16 @@ function Hero() {
       </video>
 
       <div className="hero__content">
-        <h1>Painting a future for sharks!</h1>
+        <h1 className="home-main-headline">
+          <span className="highlight">Painting a future </span>
+          for sharks!
+        </h1>
         <p>Get your unique piece of art and support shark conservation!</p>
         <Link to="shop" className="btn btn--primary">
           Check out our art
         </Link>
       </div>
+      <img className="hero-image" src="images/3rd-Eye8-large.png" alt="" />
     </div>
   );
 }

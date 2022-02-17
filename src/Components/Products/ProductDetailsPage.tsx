@@ -3,6 +3,9 @@ import { useSelector, useDispatch } from "react-redux";
 import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 import { RootState } from "Redux/Reducers/rootReducer";
 import { addToCart } from "Redux/Actions/cartActions";
+
+import Button from "@mui/material/Button";
+
 import Navigation from "Components/Navigation/Navigation";
 import "./product-details.css";
 import Footer from "Components/Footer/Footer";
@@ -46,16 +49,19 @@ function ProductDetailsPage() {
               <p>
                 <b>Price: </b> from {product.price.formatted_with_symbol}
               </p>
-              <p>In stock: {product.inventory.available}</p>
+              {product.inventory.managed && (
+                <p>In stock: {product.inventory.available}</p>
+              )}
 
               <p>{product.description.replace(/(<([^>]+)>)/gi, "")}</p>
-              {product.inventory.available !== 0 ? (
-                <button
+
+              {!product.conditionals.is_sold_out ? (
+                <Button
                   onClick={() => dispatch(addToCart(product.id, 1))}
-                  className="btn--add-to-cart"
+                  variant="contained"
                 >
                   Add to Cart
-                </button>
+                </Button>
               ) : (
                 <button disabled className="btn--disabled">
                   out of stock

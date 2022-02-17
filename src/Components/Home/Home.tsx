@@ -4,6 +4,7 @@ import Hero from "Components/Hero/Hero";
 import Main from "Components/Main/Main";
 
 import "./Home.css";
+import Main2 from "Components/Main/Main2";
 
 const Home = () => {
   return (
@@ -11,6 +12,7 @@ const Home = () => {
       <Navigation />
       <Hero />
       <Main />
+      <Main2 />
       <Footer />
     </div>
   );

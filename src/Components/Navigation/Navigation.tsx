@@ -1,11 +1,11 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { FaShoppingCart, FaUserAlt, FaHeart } from "react-icons/fa";
 import Badge from "@mui/material/Badge";
 
 import { RootState } from "Redux/Reducers/rootReducer";
-import { retrieveCart, setCart } from "Redux/Actions/cartActions";
+import { retrieveCart } from "Redux/Actions/cartActions";
 
 import "./navigation.css";
 
@@ -24,7 +24,7 @@ const Navigation = () => {
 
   useEffect(() => {
     window.onscroll = function () {
-      window.scrollY > 50 ? setStickClass(true) : setStickClass(false);
+      window.scrollY > 80 ? setStickClass(true) : setStickClass(false);
     };
   }, []);
 

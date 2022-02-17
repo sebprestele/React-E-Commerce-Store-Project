@@ -32,4 +32,5 @@
 
 .footer__icons li:hover {
   cursor: pointer;
+  color: #3987c9;
 }

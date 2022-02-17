@@ -1,7 +1,7 @@
 // Import from libraries
 import React from "react";
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 //Start - Material UI components
 import CssBaseline from "@mui/material/CssBaseline";
@@ -20,11 +20,11 @@ import PaymentForm from "./PaymentForm";
 import Review from "./Review";
 
 //Import own components
-import Navigation from "Components/Navigation/Navigation";
 import Footer from "Components/Footer/Footer";
 
 //Redux imports
 import { initiateCheckout } from "Redux/Actions/checkoutActions";
+import { useNavigate } from "react-router";
 
 //Creates the steps for the checkout
 const steps = ["Shipping address", "Review your order", "Payment details"];
@@ -48,13 +48,14 @@ const theme = createTheme();
 
 export default function Checkout() {
   const [activeStep, setActiveStep] = React.useState(0);
+  const navigate = useNavigate();
 
   const handleNext = () => {
     setActiveStep(activeStep + 1);
   };
 
   const handleBack = () => {
-    setActiveStep(activeStep - 1);
+    activeStep <= 0 ? navigate("/cart") : setActiveStep(activeStep - 1);
   };
   const dispatch = useDispatch();
 
@@ -73,9 +74,7 @@ export default function Checkout() {
           position: "relative",
           borderBottom: (t) => `1px solid ${t.palette.divider}`,
         }}
-      >
-        <Navigation />
-      </AppBar>
+      ></AppBar>
       <Container component="main" maxWidth="sm" sx={{ mb: 4 }}>
         <Paper
           variant="outlined"
@@ -107,8 +106,12 @@ export default function Checkout() {
               <React.Fragment>
                 {getStepContent(activeStep)}
                 <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
-                  {activeStep !== 0 && (
-                    <Button onClick={handleBack} sx={{ mt: 3, ml: 1 }}>
+                  {activeStep >= 0 && (
+                    <Button
+                      variant="outlined"
+                      onClick={handleBack}
+                      sx={{ mt: 3, ml: 1 }}
+                    >
                       Back
                     </Button>
                   )}

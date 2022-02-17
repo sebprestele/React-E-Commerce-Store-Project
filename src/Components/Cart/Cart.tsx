@@ -61,6 +61,7 @@ function Cart() {
                     <div className="cart-item-quantity">
                       <span>
                         <IoIosArrowUp
+                          className="arrow"
                           onClick={() =>
                             dispatch(
                               increaseQuantity(item.id, {
@@ -73,6 +74,7 @@ function Cart() {
                       {item.quantity}
                       <span>
                         <IoIosArrowDown
+                          className="arrow"
                           onClick={() =>
                             dispatch(
                               decreaseQuantity(item.id, {

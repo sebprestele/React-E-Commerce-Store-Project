@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 3em;
 }
 
 .cart-table {
@@ -9,6 +10,7 @@
   border: 1px solid black;
   text-align: center;
   width: 60%;
+  font-size: 1.3rem;
 }
 
 thead {
@@ -32,6 +34,10 @@ thead {
   margin-top: 2em;
 }
 
+.arrow {
+  cursor: pointer;
+}
+
 .delete-btn:hover {
-  display: cursor;
+  cursor: pointer;
 }

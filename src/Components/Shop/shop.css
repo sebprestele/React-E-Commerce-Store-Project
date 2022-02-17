@@ -1,10 +1,14 @@
+.shop-page {
+  margin-top: 3em;
+}
+
 .shop-product-container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  margin: 2em;
+  margin-top: 2em;
 }
 
 .product-card {

@@ -15,14 +15,16 @@
 .fixed {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   padding: 1em;
-  height: 2rem;
+  height: 3rem;
   width: 100%;
   position: fixed;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.9);
   top: 0;
-  z-index: 1;
+  z-index: 5;
   border-bottom: 1px solid grey;
+  padding: 1em;
 }
 
 .home {
@@ -48,11 +50,23 @@
   margin-left: 1em;
 }
 
+.nav-item:hover {
+  text-decoration: underline 3px solid #3987c9;
+}
+
 .nav-item.shop {
   background-color: #3987c9;
   color: white;
   padding: 0.5em;
   border-radius: 0.75em;
+  border: 3px solid rgba(255, 255, 255, 0);
+}
+
+.nav-item.shop:hover {
+  color: #3987c9;
+  background-color: white;
+  border: 3px solid #3987c9;
+  text-decoration: none;
 }
 
 .navigation-icons {

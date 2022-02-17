@@ -16,7 +16,7 @@ import "../Shop/shop.css";
 
 function ProductCard() {
   const dispatch = useDispatch();
-  const { products, wishList } = useSelector(
+  const { products, wishList, filteredProducts } = useSelector(
     (state: RootState) => state.productsReducer
   );
 
@@ -28,7 +28,7 @@ function ProductCard() {
 
   return (
     <>
-      {products.map((product) => (
+      {filteredProducts.map((product) => (
         <div className="product-card" key={product.id}>
           <Link to={`/products/${product.permalink}`}>
             <img

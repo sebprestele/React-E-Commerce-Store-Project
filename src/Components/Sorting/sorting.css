@@ -1,0 +1,21 @@
+.sorting-container {
+  position: fixed;
+  top: 12%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 1em;
+  height: 1rem;
+  padding: 1em;
+}
+
+.btn--sorting {
+  padding: 0.125em 0.25em;
+  text-align: center;
+  font-family: inherit;
+  height: fit-content;
+  margin-right: 1em;
+}
+
+.btn--sorting:hover {
+  cursor: pointer;
+}

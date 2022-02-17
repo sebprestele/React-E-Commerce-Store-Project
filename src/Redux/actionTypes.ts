@@ -14,6 +14,10 @@ import {
   GET_POSTCODE,
   GET_REGION,
   GET_COUNTRY,
+  SORT_BY_PRICE,
+  TOGGLE_PRICE_HANDLER,
+  TOGGLE_SOLD_OUT_HANDLER,
+  HIDE_SOLD_OUT,
 } from "Redux/Actions/actionConsts";
 import { Cart } from "@chec/commerce.js/types/cart";
 import { Product } from "@chec/commerce.js/types/product";
@@ -99,6 +103,24 @@ type GetCountryAction = {
   payload: string;
 };
 
+type SortByPriceAction = {
+  type: typeof SORT_BY_PRICE;
+  payload: Boolean;
+};
+
+type Toggle_Price_Handler = {
+  type: typeof TOGGLE_PRICE_HANDLER;
+};
+
+type HideSoldOutAction = {
+  type: typeof HIDE_SOLD_OUT;
+  payload: Boolean;
+};
+
+type Toggle_Sold_Out_Handler = {
+  type: typeof TOGGLE_SOLD_OUT_HANDLER;
+};
+
 export type ActionTypes =
   | GetProductsAction
   | setCartAction
@@ -114,4 +136,8 @@ export type ActionTypes =
   | GetPostcodeAction
   | GetCityAction
   | GetRegionAction
-  | GetCountryAction;
+  | GetCountryAction
+  | SortByPriceAction
+  | Toggle_Price_Handler
+  | Toggle_Sold_Out_Handler
+  | HideSoldOutAction;

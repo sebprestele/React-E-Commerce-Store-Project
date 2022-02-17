@@ -3,18 +3,27 @@ import {
   GET_PRODUCTS,
   ADD_TO_WISHLIST,
   REMOVE_FROM_WISHLIST,
+  SORT_BY_PRICE,
+  TOGGLE_PRICE_HANDLER,
+  TOGGLE_SOLD_OUT_HANDLER,
+  HIDE_SOLD_OUT,
 } from "Redux/Actions/actionConsts";
 import { ActionTypes } from "Redux/actionTypes";
-//import { Product } from "types";
 
 type DefaultState = {
   products: Product[];
+  filteredProducts: Product[];
   wishList: Product[];
+  togglePrice: Boolean;
+  toggleSoldOut: Boolean;
 };
 
 const initalState: DefaultState = {
   products: [],
+  filteredProducts: [],
   wishList: [],
+  togglePrice: false,
+  toggleSoldOut: false,
 };
 
 const productsReducer = (
@@ -26,6 +35,7 @@ const productsReducer = (
       return {
         ...state,
         products: action.payload.products,
+        filteredProducts: action.payload.products,
       };
     case ADD_TO_WISHLIST:
       const wishlistItem = state.wishList.map((product) => product.name);
@@ -39,6 +49,33 @@ const productsReducer = (
       return {
         ...state,
         wishList: state.wishList.filter((item) => item !== action.payload),
+      };
+    case SORT_BY_PRICE:
+      return {
+        ...state,
+        filteredProducts: state.togglePrice
+          ? [...state.products].sort((a, b) => a.price.raw - b.price.raw)
+          : [...state.products].sort((a, b) => b.price.raw - a.price.raw),
+      };
+    case TOGGLE_PRICE_HANDLER:
+      return {
+        ...state,
+        togglePrice: !state.togglePrice,
+      };
+    case HIDE_SOLD_OUT:
+      return {
+        ...state,
+        filteredProducts: state.toggleSoldOut
+          ? state.products.filter(
+              (product) => product.conditionals.is_sold_out === false
+            )
+          : state.products,
+      };
+
+    case TOGGLE_SOLD_OUT_HANDLER:
+      return {
+        ...state,
+        toggleSoldOut: !state.toggleSoldOut,
       };
 
     default:

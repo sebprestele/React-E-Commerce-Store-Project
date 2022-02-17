@@ -1,13 +1,11 @@
 .cart-container {
   display: flex;
   flex-direction: column;
-
   align-items: center;
-  justify-content: center;
 }
 
 .cart-table {
-  padding: 3em;
+  padding: 2em;
   border: 1px solid black;
   text-align: center;
   width: 60%;
@@ -24,4 +22,16 @@ thead {
 .cart-item-quantity {
   display: flex;
   flex-direction: column;
+}
+
+.cart-button-container {
+  width: 30%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 2em;
+}
+
+.delete-btn:hover {
+  display: cursor;
 }

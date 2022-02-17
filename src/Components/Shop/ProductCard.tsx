@@ -37,7 +37,7 @@ function ProductCard() {
               alt={product.name}
             />
           </Link>
-          <h2>{product.name}</h2>
+          <h3>{product.name}</h3>
           <div className="product-card-price-container">
             {wishlistItem.includes(product.name) ? (
               <FaHeart
@@ -58,11 +58,19 @@ function ProductCard() {
             </p>
           </div>
 
-          <div className="product-card-icons">
-            <button onClick={() => dispatch(addToCart(product.id, 1))}>
+          <div className="product-card-buttons">
+            <button
+              onClick={() => dispatch(addToCart(product.id, 1))}
+              className="btn--add-to-cart"
+            >
               Add to Cart
             </button>
-            <Link to={`/products/${product.permalink}`}>More Details</Link>
+            <Link
+              to={`/products/${product.permalink}`}
+              className="btn--secondary"
+            >
+              More Details
+            </Link>
           </div>
         </div>
       ))}

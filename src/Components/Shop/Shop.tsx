@@ -6,9 +6,11 @@ const Shop = () => {
   return (
     <div className="page-wrapper">
       <Navigation />
-      <h1>Shop</h1>
-      <div className="shop-product-container">
-        <ProductCard />
+      <div className="shop-page">
+        <h1>FinArts Shop</h1>
+        <div className="shop-product-container">
+          <ProductCard />
+        </div>
       </div>
       <Footer />
     </div>

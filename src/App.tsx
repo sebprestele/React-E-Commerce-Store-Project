@@ -10,6 +10,7 @@ import ProductDetailsPage from "Components/Products/ProductDetailsPage";
 import Wishlist from "Components/Wishlist/Wishlist";
 import Account from "Components/Account/Account";
 import Checkout from "Components/Checkout/Checkout";
+import Confirmation from "Components/Checkout/Confirmation";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/contact" element={<Contact />}></Route>
         <Route path="/cart" element={<Cart />}></Route>
         <Route path="/checkout" element={<Checkout />}></Route>
+        <Route path="/checkout/success" element={<Confirmation />}></Route>
         <Route path="/products/:name" element={<ProductDetailsPage />}></Route>
         <Route path="/wishlist" element={<Wishlist />}></Route>
         <Route path="/account" element={<Account />}></Route>

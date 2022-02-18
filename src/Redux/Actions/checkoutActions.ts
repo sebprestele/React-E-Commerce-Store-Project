@@ -14,7 +14,7 @@ export const getCheckOutToken = (response: CheckoutToken) => {
 export const initiateCheckout = () => {
   return (dispatch: Dispatch) =>
     commerce.checkout
-      .generateTokenFrom("cart", commerce.cart.id())
+      .generateTokenFrom("cart", commerce.cart.id() ?? "Something went wrong")
       .then((response) => dispatch(getCheckOutToken(response)));
 };
 

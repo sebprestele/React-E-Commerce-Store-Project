@@ -3,7 +3,7 @@ import Footer from "Components/Footer/Footer";
 import Navigation from "Components/Navigation/Navigation";
 import Sorting from "Components/Sorting/Sorting";
 import ProductCard from "./ProductCard";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { RootState } from "Redux/Reducers/rootReducer";
 
 const Shop = () => {

@@ -7,6 +7,7 @@ type defaultState = {
 };
 
 const intialState: defaultState = {
+  // @ts-ignore
   cart: {},
 };
 

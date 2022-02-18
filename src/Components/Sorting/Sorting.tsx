@@ -12,7 +12,7 @@ import "./sorting.css";
 
 function Sorting() {
   const dispatch = useDispatch();
-  const { togglePrice, toggleSoldOut, filteredProducts } = useSelector(
+  const { togglePrice, toggleSoldOut } = useSelector(
     (state: RootState) => state.productsReducer
   );
 
@@ -24,25 +24,24 @@ function Sorting() {
     dispatch(hideSoldOut(toggleSoldOut));
   }, [dispatch, toggleSoldOut]);
 
-  console.log(toggleSoldOut);
-  console.log(filteredProducts);
-
   return (
-    <div className="sorting-container">
-      <button
-        onClick={() => dispatch(togglePriceHandler())}
-        className="btn--sorting"
-      >
-        Sort by Price {!togglePrice ? <FaSortUp /> : <FaSortDown />}
-      </button>
+    <>
+      <div className="sorting-container">
+        <button
+          onClick={() => dispatch(togglePriceHandler())}
+          className="btn--sorting"
+        >
+          Sort by Price {!togglePrice ? <FaSortUp /> : <FaSortDown />}
+        </button>
 
-      <button
-        onClick={() => dispatch(toggleSoldOutHandler())}
-        className="btn--sorting"
-      >
-        {!toggleSoldOut ? "Hide Soldout" : "Show Soldout"}
-      </button>
-    </div>
+        <button
+          onClick={() => dispatch(toggleSoldOutHandler())}
+          className="btn--sorting"
+        >
+          {!toggleSoldOut ? "Hide Soldout" : "Show Soldout"}
+        </button>
+      </div>
+    </>
   );
 }
 

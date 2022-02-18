@@ -1,4 +1,4 @@
-import { useParams, useLocation } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 import { RootState } from "Redux/Reducers/rootReducer";
@@ -28,7 +28,7 @@ function ProductDetailsPage() {
           <div className="single-product-container">
             <div className="single-product-image-carousel">
               <div className="single-product-images-container">
-                <img src={product.image.url} alt="" />
+                <img src={product.image!.url} alt="" />
 
                 <div>
                   <button>Prev</button>

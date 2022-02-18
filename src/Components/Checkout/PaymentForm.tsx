@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import {
   Elements,
   CardElement,
@@ -6,7 +8,7 @@ import {
 import { loadStripe, Stripe } from "@stripe/stripe-js";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { FaBullseye, FaSpinner } from "react-icons/fa";
+import { FaSpinner } from "react-icons/fa";
 
 import Typography from "@mui/material/Typography";
 import List from "@mui/material/List";
@@ -16,15 +18,14 @@ import { Button } from "@mui/material";
 
 import commerce from "assets/lib/commerce";
 import { RootState } from "Redux/Reducers/rootReducer";
-import { CheckoutToken } from "@chec/commerce.js/types/checkout-token";
-import { LineItem } from "@chec/commerce.js/types/line-item";
+/* import { CheckoutToken } from "@chec/commerce.js/types/checkout-token";
+import { LineItem } from "@chec/commerce.js/types/line-item"; */
 import { useState } from "react";
 
 export default function PaymentForm() {
   const [isLoading, setIsLoading] = useState(false);
 
-  const dispatch = useDispatch();
-  const { checkoutToken }: CheckoutToken = useSelector(
+  const { checkoutToken } = useSelector(
     (state: RootState) => state.checkoutReducer
   );
 
@@ -112,7 +113,7 @@ export default function PaymentForm() {
         Order summary
       </Typography>
       <List disablePadding>
-        {checkoutToken.line_items.map((product: LineItem) => (
+        {checkoutToken.line_items.map((product) => (
           <ListItem key={product.name} sx={{ py: 1, px: 0 }}>
             <ListItemText
               primary={product.name}

@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { FiHeart } from "react-icons/fi";
 import { FaHeart } from "react-icons/fa";
 
 import { fetchProducts } from "Redux/Actions/productActions";

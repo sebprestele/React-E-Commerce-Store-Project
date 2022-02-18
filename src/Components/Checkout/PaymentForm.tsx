@@ -6,7 +6,7 @@ import {
   ElementsConsumer,
 } from "@stripe/react-stripe-js";
 import { loadStripe, Stripe } from "@stripe/stripe-js";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { FaSpinner } from "react-icons/fa";
 

@@ -7,6 +7,8 @@ import {
   TOGGLE_PRICE_HANDLER,
   TOGGLE_SOLD_OUT_HANDLER,
   HIDE_SOLD_OUT,
+  PRODUCTS_LOADING,
+  PRODUCTS_LOADED,
 } from "Redux/Actions/actionConsts";
 import { ActionTypes } from "Redux/actionTypes";
 
@@ -16,6 +18,7 @@ type DefaultState = {
   wishList: Product[];
   togglePrice: Boolean;
   toggleSoldOut: Boolean;
+  isLoading: Boolean;
 };
 
 const initalState: DefaultState = {
@@ -24,6 +27,7 @@ const initalState: DefaultState = {
   wishList: [],
   togglePrice: false,
   toggleSoldOut: false,
+  isLoading: false,
 };
 
 const productsReducer = (
@@ -76,6 +80,18 @@ const productsReducer = (
       return {
         ...state,
         toggleSoldOut: !state.toggleSoldOut,
+      };
+
+    case PRODUCTS_LOADING:
+      return {
+        ...state,
+        isLoading: true,
+      };
+
+    case PRODUCTS_LOADED:
+      return {
+        ...state,
+        isLoading: false,
       };
 
     default:

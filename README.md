@@ -4,8 +4,8 @@ Own CSS with a few components from Material US
 
 Site is deployed on netlify: https://finarts-ecommerce-react-project.netlify.app/ 
 
-# Used Commerce.js as Headless Commerce solution to upload and manage products and incoming orders
-# Used Stripe as payment gateway - Working sandbox payment with any valid Stripe test card
+Used Commerce.js as Headless Commerce solution to upload and manage products and incoming orders
+Used Stripe as payment gateway - Working sandbox payment with any valid Stripe test card
 e.g. 42424242424 42/42 424 etc
 
 Home page design inspired by thefinarts.com

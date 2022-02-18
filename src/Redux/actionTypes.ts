@@ -21,6 +21,8 @@ import {
   TOGGLE_PRICE_HANDLER,
   TOGGLE_SOLD_OUT_HANDLER,
   HIDE_SOLD_OUT,
+  PRODUCTS_LOADED,
+  PRODUCTS_LOADING,
 } from "Redux/Actions/actionConsts";
 
 //Fetch Products
@@ -122,6 +124,14 @@ type Toggle_Sold_Out_Handler = {
   type: typeof TOGGLE_SOLD_OUT_HANDLER;
 };
 
+type ProductLoadingAction = {
+  type: typeof PRODUCTS_LOADING;
+};
+
+type ProductLoadedAction = {
+  type: typeof PRODUCTS_LOADED;
+};
+
 export type ActionTypes =
   | GetProductsAction
   | setCartAction
@@ -141,4 +151,6 @@ export type ActionTypes =
   | SortByPriceAction
   | Toggle_Price_Handler
   | Toggle_Sold_Out_Handler
-  | HideSoldOutAction;
+  | HideSoldOutAction
+  | ProductLoadingAction
+  | ProductLoadedAction;

@@ -5,6 +5,8 @@ import { ActionTypes } from "Redux/actionTypes";
 import {
   GET_PRODUCTS,
   HIDE_SOLD_OUT,
+  PRODUCTS_LOADED,
+  PRODUCTS_LOADING,
   SORT_BY_PRICE,
   TOGGLE_PRICE_HANDLER,
   TOGGLE_SOLD_OUT_HANDLER,
@@ -18,16 +20,18 @@ export const getProducts = (products: Product[]): ActionTypes => {
   };
 };
 
-export const fetchProducts = () => {
-  return (dispatch: Dispatch) =>
-    commerce.products
-      .list()
-      .then((products) => {
-        dispatch(getProducts(products.data));
-      })
-      .catch((error) => {
-        console.log("There was an error fetching the products", error);
-      });
+export const fetchProducts = () => (dispatch: Dispatch) => {
+  dispatch({ type: PRODUCTS_LOADING });
+  commerce.products
+    .list()
+    .then((products) => {
+      dispatch({ type: PRODUCTS_LOADED });
+      dispatch(getProducts(products.data));
+    })
+    .catch((error) => {
+      dispatch({ type: PRODUCTS_LOADED });
+      console.log("There was an error fetching the products", error);
+    });
 };
 
 export const sortByPrice = (isToggled: Boolean) => {

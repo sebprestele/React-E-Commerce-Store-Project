@@ -1,14 +1,13 @@
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { FaStar, FaStarHalfAlt } from "react-icons/fa";
-import { RootState } from "Redux/Reducers/rootReducer";
-import { addToCart } from "Redux/Actions/cartActions";
-
 import Button from "@mui/material/Button";
 
+import { RootState } from "Redux/Reducers/rootReducer";
+import { addToCart } from "Redux/Actions/cartActions";
 import Navigation from "Components/Navigation/Navigation";
-import "./product-details.css";
 import Footer from "Components/Footer/Footer";
+import "./product-details.css";
 
 function ProductDetailsPage() {
   const dispatch = useDispatch();
@@ -22,14 +21,12 @@ function ProductDetailsPage() {
   return (
     <div className="page-wrapper">
       <Navigation />
-
       <div className="single-product-wrapper">
         {singleProduct.map((product) => (
           <div className="single-product-container">
             <div className="single-product-image-carousel">
               <div className="single-product-images-container">
                 <img src={product.image!.url} alt="" />
-
                 <div>
                   <button>Prev</button>
                   <button>Next</button>

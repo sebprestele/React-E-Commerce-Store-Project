@@ -1,5 +1,5 @@
 // @ts-nocheck
-
+import { useState } from "react";
 import {
   Elements,
   CardElement,
@@ -9,7 +9,6 @@ import { loadStripe, Stripe } from "@stripe/stripe-js";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { FaSpinner } from "react-icons/fa";
-
 import Typography from "@mui/material/Typography";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
@@ -20,16 +19,13 @@ import commerce from "assets/lib/commerce";
 import { RootState } from "Redux/Reducers/rootReducer";
 /* import { CheckoutToken } from "@chec/commerce.js/types/checkout-token";
 import { LineItem } from "@chec/commerce.js/types/line-item"; */
-import { useState } from "react";
 
 export default function PaymentForm() {
   const [isLoading, setIsLoading] = useState(false);
-
+  const navigate = useNavigate();
   const { checkoutToken } = useSelector(
     (state: RootState) => state.checkoutReducer
   );
-
-  const navigate = useNavigate();
 
   const {
     firstName,
@@ -73,7 +69,6 @@ export default function PaymentForm() {
         lastname: lastName,
         email: email,
       };
-
       const billing_details = {
         email: email,
         address: {
@@ -91,7 +86,6 @@ export default function PaymentForm() {
           payment_method_id: paymentMethod.id,
         },
       };
-
       const order = await commerce.checkout.capture(checkoutToken.id, {
         orderData,
         checkoutToken,
@@ -131,7 +125,6 @@ export default function PaymentForm() {
           </Typography>
         </ListItem>
       </List>
-
       <Typography variant="h6" gutterBottom>
         Payment method
       </Typography>

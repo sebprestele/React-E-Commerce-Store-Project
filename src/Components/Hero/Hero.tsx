@@ -11,7 +11,6 @@ function Hero() {
         />
         Your browser does not support the video tag.
       </video>
-
       <div className="hero__content">
         <h1 className="home-main-headline">
           <span className="highlight">Painting a future </span>

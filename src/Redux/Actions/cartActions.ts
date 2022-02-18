@@ -2,7 +2,6 @@ import { Dispatch } from "redux";
 
 import commerce from "assets/lib/commerce";
 import { SET_CART } from "./actionConsts";
-
 import { Cart } from "@chec/commerce.js/types/cart";
 
 export const setCart = (cart: Cart) => {

@@ -11,7 +11,6 @@ import {
 } from "Redux/Actions/wishlistActions";
 import { addToCart } from "Redux/Actions/cartActions";
 import { RootState } from "Redux/Reducers/rootReducer";
-
 import "../Shop/shop.css";
 
 function ProductCard() {
@@ -52,12 +51,10 @@ function ProductCard() {
                 }}
               />
             )}
-
             <p className="product-card-price">
               Price: from {product.price.formatted_with_symbol}
             </p>
           </div>
-
           <div className="product-card-buttons">
             {!product.conditionals.is_sold_out ? (
               <button
@@ -71,7 +68,6 @@ function ProductCard() {
                 out of stock
               </button>
             )}
-
             <Link
               to={`/products/${product.permalink}`}
               className="btn--secondary"

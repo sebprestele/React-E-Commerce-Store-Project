@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-function Main2() {
+function MainContentBottomPart() {
   return (
     <section className="main-content">
       <div className="main-content-container">
@@ -26,4 +26,4 @@ function Main2() {
   );
 }
 
-export default Main2;
+export default MainContentBottomPart;

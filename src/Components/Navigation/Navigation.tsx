@@ -6,21 +6,18 @@ import Badge from "@mui/material/Badge";
 
 import { RootState } from "Redux/Reducers/rootReducer";
 import { retrieveCart } from "Redux/Actions/cartActions";
-
 import "./navigation.css";
 
 const Navigation = () => {
   const { cart } = useSelector((state: RootState) => state.cartReducer);
   const { wishList } = useSelector((state: RootState) => state.productsReducer);
+  const [stickyClass, setStickClass] = useState(false);
   const dispatch = useDispatch();
+  const pathname = window.location.pathname;
 
   useEffect(() => {
     dispatch(retrieveCart());
   }, [dispatch]);
-
-  const pathname = window.location.pathname;
-
-  const [stickyClass, setStickClass] = useState(false);
 
   useEffect(() => {
     window.onscroll = function () {
@@ -67,7 +64,6 @@ const Navigation = () => {
             <FaHeart />
           </Badge>
         </Link>
-
         <Link to="/cart">
           <Badge
             badgeContent={cart.line_items && cart.total_items}

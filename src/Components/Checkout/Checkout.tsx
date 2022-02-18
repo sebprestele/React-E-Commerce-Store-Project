@@ -2,7 +2,9 @@
 import React from "react";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-
+//Redux imports
+import { initiateCheckout } from "Redux/Actions/checkoutActions";
+import { useNavigate } from "react-router";
 //Start - Material UI components
 import CssBaseline from "@mui/material/CssBaseline";
 import AppBar from "@mui/material/AppBar";
@@ -21,10 +23,6 @@ import Review from "./Review";
 
 //Import own components
 import Footer from "Components/Footer/Footer";
-
-//Redux imports
-import { initiateCheckout } from "Redux/Actions/checkoutActions";
-import { useNavigate } from "react-router";
 
 //Creates the steps for the checkout
 const steps = ["Shipping address", "Review your order", "Payment details"];
@@ -91,18 +89,7 @@ export default function Checkout() {
             ))}
           </Stepper>
           <>
-            {activeStep === steps.length ? (
-              <React.Fragment>
-                <Typography variant="h5" gutterBottom>
-                  Thank you for your order.
-                </Typography>
-                <Typography variant="subtitle1">
-                  Your order number is #2001539. We have emailed your order
-                  confirmation, and will send you an update when your order has
-                  shipped.
-                </Typography>
-              </React.Fragment>
-            ) : (
+            {activeStep !== steps.length && (
               <React.Fragment>
                 {getStepContent(activeStep)}
                 <Box sx={{ display: "flex", justifyContent: "flex-end" }}>

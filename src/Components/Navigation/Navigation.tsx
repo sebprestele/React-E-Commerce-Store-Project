@@ -24,7 +24,7 @@ const Navigation = () => {
 
   useEffect(() => {
     window.onscroll = function () {
-      window.scrollY > 80 ? setStickClass(true) : setStickClass(false);
+      window.scrollY > 120 ? setStickClass(true) : setStickClass(false);
     };
   }, []);
 

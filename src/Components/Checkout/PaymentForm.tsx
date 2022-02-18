@@ -6,6 +6,7 @@ import {
 import { loadStripe, Stripe } from "@stripe/stripe-js";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { FaBullseye, FaSpinner } from "react-icons/fa";
 
 import Typography from "@mui/material/Typography";
 import List from "@mui/material/List";
@@ -16,10 +17,12 @@ import { Button } from "@mui/material";
 import commerce from "assets/lib/commerce";
 import { RootState } from "Redux/Reducers/rootReducer";
 import { CheckoutToken } from "@chec/commerce.js/types/checkout-token";
-import { Product } from "@chec/commerce.js/types/product";
 import { LineItem } from "@chec/commerce.js/types/line-item";
+import { useState } from "react";
 
 export default function PaymentForm() {
+  const [isLoading, setIsLoading] = useState(false);
+
   const dispatch = useDispatch();
   const { checkoutToken }: CheckoutToken = useSelector(
     (state: RootState) => state.checkoutReducer
@@ -47,6 +50,7 @@ export default function PaymentForm() {
     elements: any,
     stripe: Stripe
   ) => {
+    setIsLoading(true);
     event.preventDefault();
 
     if (!stripe || !elements) return;
@@ -94,11 +98,11 @@ export default function PaymentForm() {
         customer,
         billing_details,
       });
+      setIsLoading(false);
       console.log("success");
       console.log(order);
       navigate("/checkout/success");
       commerce.cart.delete().then((json) => console.log(json));
-      //dispatch(getNewOrder(order))
     }
   };
 
@@ -148,6 +152,7 @@ export default function PaymentForm() {
                   color="primary"
                 >
                   Pay {checkoutToken.live.subtotal.formatted_with_symbol}
+                  {isLoading && <FaSpinner className="spinner" />}
                 </Button>
               </div>
             </form>

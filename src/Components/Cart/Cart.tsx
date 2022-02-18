@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { RiDeleteBin6Fill } from "react-icons/ri";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
@@ -17,11 +17,13 @@ import Footer from "Components/Footer/Footer";
 import Navigation from "Components/Navigation/Navigation";
 
 import "./cart.css";
+import { Button } from "@mui/material";
 
 function Cart() {
   const { cart } = useSelector((state: RootState) => state.cartReducer);
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(retrieveCart());
@@ -110,7 +112,12 @@ function Cart() {
             </tbody>
           </table>
         ) : (
-          "Cart is empty"
+          <>
+            <p>Your cart is empty</p>
+            <Button variant="contained" onClick={() => navigate("/shop")}>
+              Add some products
+            </Button>
+          </>
         )}
         {cart.line_items.length > 0 && (
           <div className="cart-button-container">

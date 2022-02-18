@@ -6,7 +6,6 @@ import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useNavigate } from "react-router";
 
-import Navigation from "Components/Navigation/Navigation";
 import Footer from "Components/Footer/Footer";
 import { Button } from "@mui/material";
 
@@ -15,7 +14,7 @@ const theme = createTheme();
 function Confirmation() {
   const navigate = useNavigate();
   const handleClick = () => {
-    navigate("/shop");
+    navigate("/");
   };
 
   return (
@@ -29,9 +28,7 @@ function Confirmation() {
           position: "relative",
           borderBottom: (t) => `1px solid ${t.palette.divider}`,
         }}
-      >
-        <Navigation />
-      </AppBar>
+      ></AppBar>
       <Container component="main" maxWidth="sm" sx={{ mb: 4 }}>
         <Paper
           variant="outlined"
@@ -56,11 +53,12 @@ function Confirmation() {
               onClick={handleClick}
               sx={{ mt: 3, ml: 1 }}
             >
-              Continue Shopping
+              Back to home
             </Button>
           </>
         </Paper>
       </Container>
+      <Footer />
     </ThemeProvider>
   );
 }

@@ -16,7 +16,7 @@ import "../Shop/shop.css";
 
 function ProductCard() {
   const dispatch = useDispatch();
-  const { products, wishList, filteredProducts } = useSelector(
+  const { wishList, filteredProducts } = useSelector(
     (state: RootState) => state.productsReducer
   );
 

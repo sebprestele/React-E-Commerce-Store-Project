@@ -2,6 +2,7 @@
   "name": "frontendproject",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://main--finarts-ecommerce-react-project.netlify.app/",
   "dependencies": {
     "@chec/commerce.js": "^2.8.0",
     "@emotion/react": "^11.7.1",

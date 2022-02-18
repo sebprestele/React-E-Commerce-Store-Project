@@ -1,3 +1,6 @@
+import { Cart } from "@chec/commerce.js/types/cart";
+import { Product } from "@chec/commerce.js/types/product";
+
 import {
   GET_PRODUCTS,
   ADD_TO_WISHLIST,
@@ -19,8 +22,6 @@ import {
   TOGGLE_SOLD_OUT_HANDLER,
   HIDE_SOLD_OUT,
 } from "Redux/Actions/actionConsts";
-import { Cart } from "@chec/commerce.js/types/cart";
-import { Product } from "@chec/commerce.js/types/product";
 
 //Fetch Products
 

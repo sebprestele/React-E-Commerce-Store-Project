@@ -1,6 +1,5 @@
 import Footer from "Components/Footer/Footer";
 import Navigation from "Components/Navigation/Navigation";
-
 import "./contact.css";
 
 //Contact form not functional yet
@@ -19,20 +18,17 @@ function Contact() {
               name="firstname"
               placeholder="Your name firstname"
             />
-
             <input
               type="text"
               className="contact__name"
               name="lastname"
               placeholder="Your last name.."
             />
-
             <textarea
               name="subject"
               className="contact__textarea"
               placeholder="Your message for us.."
             ></textarea>
-
             <input type="submit" className="btn btn--primary" value="Submit" />
           </form>
         </div>

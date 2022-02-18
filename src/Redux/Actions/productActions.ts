@@ -1,6 +1,6 @@
 import { Dispatch } from "redux";
-import commerce from "assets/lib/commerce";
 
+import commerce from "assets/lib/commerce";
 import { ActionTypes } from "Redux/actionTypes";
 import {
   GET_PRODUCTS,

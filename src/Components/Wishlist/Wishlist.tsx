@@ -7,10 +7,9 @@ import { fetchProducts } from "Redux/Actions/productActions";
 import { removeFromWishList } from "Redux/Actions/wishlistActions";
 import { addToCart } from "Redux/Actions/cartActions";
 import { RootState } from "Redux/Reducers/rootReducer";
-
-import "../Shop/shop.css";
 import Navigation from "Components/Navigation/Navigation";
 import Footer from "Components/Footer/Footer";
+import "../Shop/shop.css";
 
 import "./wishlist.css";
 

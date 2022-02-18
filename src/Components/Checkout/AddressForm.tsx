@@ -1,8 +1,5 @@
 import * as React from "react";
-import { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "Redux/Reducers/rootReducer";
-import commerce from "assets/lib/commerce";
+import { useDispatch } from "react-redux";
 
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";

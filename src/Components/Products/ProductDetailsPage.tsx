@@ -36,9 +36,8 @@ function ProductDetailsPage() {
   const prevImage = () => {
     if (imageIndex > 0) {
       setImageIndex((prevImageIndex) => prevImageIndex - 1);
-    }
-    if (imageIndex === 0) {
-      setImageIndex(images.length);
+    } else {
+      setImageIndex(images.length + 1);
     }
   };
 

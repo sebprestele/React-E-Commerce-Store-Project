@@ -39,6 +39,7 @@ function ProductDetailsPage() {
     } else {
       setImageIndex(images.length + 1);
     }
+   
   };
 
   return (

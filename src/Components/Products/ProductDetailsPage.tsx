@@ -36,10 +36,10 @@ function ProductDetailsPage() {
   const prevImage = () => {
     if (imageIndex > 0) {
       setImageIndex((prevImageIndex) => prevImageIndex - 1);
+    } else {
+      setImageIndex(images.length + 1);
     }
-    if (imageIndex === 0) {
-      setImageIndex(images.length);
-    }
+   
   };
 
   return (

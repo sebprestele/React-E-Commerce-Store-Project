@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # E-Commerce Shop 
 Built with React, Redux & TypeScript
 Own CSS with a few components from Material US

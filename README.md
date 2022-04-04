@@ -22,12 +22,9 @@ This project now is my take on a modern headless ecommerce solution
 ![The FinArts - Painting a future for sharks (1)](https://user-images.githubusercontent.com/51739799/160917818-7418a7a0-8ef7-43d7-a063-9505b0300120.png)
 ![The FinArts - Painting a future for sharks (2)](https://user-images.githubusercontent.com/51739799/160917796-39cf34fa-8486-4484-9aac-0d72a48ade1e.png)
 
-Areas to focus on in future sprints
-
+Roadmap:
 
 Full responsiveness
-
-
 Form validation
 Customer account
 Improved error handling

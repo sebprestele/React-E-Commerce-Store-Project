@@ -55,13 +55,13 @@ const Navigation = () => {
           Shop
         </Link>
       </div>
-      <div className="navigation-icons">
+      <div className="navigation-icons-container">
         <Link to="/account">
           <FaUserAlt className="user-icon" />
         </Link>
         <Link to="/wishlist">
           <Badge badgeContent={wishList.length} color="primary">
-            <FaHeart />
+            <FaHeart className="navigation-icon " />
           </Badge>
         </Link>
         <Link to="/cart">
@@ -69,7 +69,7 @@ const Navigation = () => {
             badgeContent={cart.line_items && cart.total_items}
             color="primary"
           >
-            <FaShoppingCart className="cart-icon" />
+            <FaShoppingCart className="navigation-icon" />
           </Badge>
         </Link>
       </div>
